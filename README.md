@@ -42,7 +42,7 @@ for await (const d of x) {
 }
 ```
 
-✅ use `close` to stop `xield`inig:
+✅ use `close` to stop `xield`ing:
 
 ```ts
 import { xielder } from "xielder";
