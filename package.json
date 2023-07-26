@@ -2,7 +2,7 @@
   "name": "xielder",
   "description": "A yield expression is only allowed in a generator body. But you can xield anywhere.",
   "private": false,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "files": [
     "./dist"
