@@ -7,35 +7,58 @@
   "files": [
     "./dist"
   ],
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
   "exports": {
     "import": "./dist/index.js",
     "default": "./dist/index.js"
   },
-  "scripts": {
-    "build": "tsc && vite build"
-  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Sec-ant/xielder"
+    "url": "git+https://github.com/Sec-ant/xielder.git"
   },
   "homepage": "https://github.com/Sec-ant/xielder",
   "bugs": {
-    "url": "https://github.com/Sec-ant/xielder/issues"
+    "url": "https://github.com/Sec-ant/xielder/issues",
+    "email": "zzwu@zju.edu.cn"
   },
   "keywords": [
     "yield",
     "xield",
     "xielder"
   ],
-  "author": "Ze-Zheng Wu",
+  "author": {
+    "name": "Ze-Zheng Wu"
+  },
   "license": "MIT",
+  "config": {},
+  "publishConfig": {
+    "provenance": true,
+    "access": "public"
+  },
+  "scripts": {
+    "dev": "vite",
+    "lint": "eslint . --ext .ts",
+    "type-check": "tsc --noEmit --emitDeclarationOnly false",
+    "format": "prettier . --write",
+    "prebuild": "npm run lint && npm run type-check && npm run format",
+    "build": "vite build",
+    "postbuild": "tsc",
+    "preview": "vite preview",
+    "prepublishOnly": "npm run build",
+    "ncu": "npx npm-check-updates -u",
+    "postncu": "npm i"
+  },
   "devDependencies": {
-    "esbuild": "^0.18.17",
+    "@commitlint/cli": "^17.7.1",
+    "@commitlint/config-conventional": "^17.7.0",
+    "@semantic-release/git": "^10.0.1",
+    "@typescript-eslint/eslint-plugin": "^6.7.0",
+    "@typescript-eslint/parser": "^6.7.0",
+    "eslint": "^8.49.0",
+    "npm-check-updates": "^16.13.3",
+    "prettier": "^3.0.3",
+    "semantic-release": "^21.1.1",
     "typescript": "^5.1.6",
-    "vite": "^4.4.7",
-    "vite-plugin-dts": "^3.3.1"
+    "vite": "^4.4.7"
   },
   "peerDependencies": {
     "@sec-ant/readable-stream": "^0.3.2"

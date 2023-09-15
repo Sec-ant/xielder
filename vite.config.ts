@@ -1,6 +1,4 @@
 import { defineConfig } from "vite";
-import dts from "vite-plugin-dts";
-import { transform } from "esbuild";
 
 export default defineConfig({
   build: {
@@ -9,23 +7,8 @@ export default defineConfig({
         index: "./src/index.ts",
       },
       formats: ["es"],
+      fileName: (format, entryName) =>
+        format === "es" ? `${entryName}.js` : `${entryName}.${format}.js`,
     },
   },
-  plugins: [
-    {
-      name: "minifyEsm",
-      renderChunk: {
-        order: "post",
-        handler: async (code, _, { format }) => {
-          if (format === "es") {
-            return await transform(code, {
-              minify: true,
-            });
-          }
-          return code;
-        },
-      },
-    },
-    dts(),
-  ],
 });
