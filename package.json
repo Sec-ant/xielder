@@ -58,7 +58,7 @@
     "prettier": "^3.0.3",
     "semantic-release": "^22.0.0",
     "typescript": "^5.1.6",
-    "vite": "^4.4.7"
+    "vite": "^5.0.0"
   },
   "peerDependencies": {
     "@sec-ant/readable-stream": "^0.3.2"
